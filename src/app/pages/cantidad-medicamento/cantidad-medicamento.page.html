@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cantidad de Medicamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      Inventario de Medicamentos
+    </ion-list-header>
+    <ion-item *ngFor="let medicine of medicines">
+      <ion-label>
+        <h2>{{ medicine.name }}</h2>
+        <p>Quedan: {{ medicine.quantity }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="goToPage('home')">Inicio</ion-button>
+  <ion-button expand="full" (click)="goToPage('perfil')">Perfil</ion-button>
+  <ion-button expand="full" (click)="goToPage('recordatorio-medicamento')">Recordatorio de Medicamento</ion-button>
+  <ion-button expand="full" (click)="goToPage('recordatoriodeotraspersonasomascotas')">Recordatorios de Otras Personas o Mascotas</ion-button>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recordatorios de Otras Personas o Mascotas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      Recordatorios
+    </ion-list-header>
+    <ion-item *ngFor="let reminder of reminders">
+      <ion-label>
+        <h2>{{ reminder.name }}</h2>
+        <p>{{ reminder.time }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="goToPage('home')">Inicio</ion-button>
+  <ion-button expand="full" (click)="goToPage('perfil')">Perfil</ion-button>
+  <ion-button expand="full" (click)="goToPage('recordatorio-medicamento')">Recordatorio de Medicamento</ion-button>
+  <ion-button expand="full" (click)="goToPage('cantidad-medicamento')">Cantidad de Medicamento</ion-button>
+</ion-content>

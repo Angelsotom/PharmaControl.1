@@ -1,0 +1,27 @@
+@import 'src/global.scss';
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+ 
+
+  mat-card {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    
+    color: $text-color; // Asegúrate de que el color del texto sea visible
+  }
+
+  mat-list-item {
+    margin-bottom: 10px;
+    color: $text-color; // Asegúrate de que el color del texto sea visible
+  }
+
+
+}
+

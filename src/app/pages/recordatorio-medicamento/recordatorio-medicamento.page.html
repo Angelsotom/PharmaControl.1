@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recordatorio de Medicamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Nombre del Medicamento</ion-label>
+    <ion-input type="text" [(ngModel)]="reminder.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Hora y fehca</ion-label>
+    <ion-datetime display-format="HH:mm" [(ngModel)]="reminder.time"></ion-datetime>
+  </ion-item>
+  <ion-button expand="full" (click)="addReminder()">Agregar Recordatorio</ion-button>
+  <ion-button expand="full"(click)="goToPage('home')">Inicio</ion-button>
+</ion-content>

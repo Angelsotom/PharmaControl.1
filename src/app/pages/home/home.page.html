@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Recordatorios de Medicamentos</mat-card-title>
+    </mat-card-header>
+    <mat-list class="reminder-list">
+      <mat-list-item *ngFor="let reminder of reminders">
+        <mat-icon mat-list-icon>medication</mat-icon>
+        <h4 mat-line>{{ reminder.name }}</h4>
+        <p mat-line>{{ reminder.time }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  <ion-button expand="full" (click)="goToPage('perfil')">Perfil</ion-button>
+  <ion-button expand="full" (click)="goToPage('recordatorio-medicamento')">Recordatorio de Medicamento</ion-button>
+  <ion-button expand="full" (click)="goToPage('cantidad-medicamento')">Cantidad de Medicamento</ion-button>
+  <ion-button expand="full" (click)="goToPage('recordatoriodeotraspersonasomascotas')">Recordatorios de Otras Personas o Mascotas</ion-button>
+  <ion-button expand="full" (click)="goToPage('medicamentos')">Medicamentos</ion-button>
+  <ion-button expand="full" (click)="goToPage('maps')">Busca la farmacia mas cercana</ion-button>
+</ion-content>

@@ -1,0 +1,35 @@
+.logo {
+  max-width: 50%;
+  height: auto;
+}
+
+
+ion-card{
+  background-color: transparent;
+}
+
+ion-card-title h3 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.animacion_zoom {
+  width: 100px;
+  height: 100px; 
+  margin: 30px auto;
+  animation: zoomInOut 3s infinite;
+}
+
+@keyframes zoomInOut {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.5);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+

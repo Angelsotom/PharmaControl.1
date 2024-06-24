@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PHARMACONTROL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="content-container">
+    <ion-img src="../../../assets/imagenes/pastilla.jpg"></ion-img>
+    <div class="info-section">
+      <h2>Historial y Seguimiento Detallado</h2>
+      <p>Registra cada toma de medicamentos y revisa el historial detallado para un seguimiento preciso y un control total sobre el consumo diario.</p>
+      <h2>Alertas de Inventario Bajo</h2>
+      <p>Nuestro sistema te alerta automáticamente cuando el inventario de medicamentos esté bajo, garantizando que siempre tengas un suministro suficiente.</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button class="custom-button" (click)="goToPreviousTab('tabs/tab1')">Anterior</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToNextTab('tabs/tab3')">Siguiente</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Botón de regreso -->
+    </ion-buttons>
+    <ion-title>Medicamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Buscar Medicamento</ion-label>
+    <ion-input [(ngModel)]="nombreMedicamento"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="buscarMedicamentos()">Buscar</ion-button>
+  
+  <ion-list *ngIf="medicamentos.length > 0">
+    <ion-list-header>
+      Lista de Medicamentos
+    </ion-list-header>
+    <ion-item *ngFor="let medicamento of medicamentos">
+      <ion-label>
+        <h2>{{ medicamento.nombre }}</h2>
+        <p>Número de registro: {{ medicamento.nregistro }}</p>
+        <p>Lanboratorio: {{ medicamento.labtitular }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+  <ion-list *ngIf="medicamentos.length === 0 && searchPerformed">
+    <ion-item>
+      <ion-label>
+        No se encontraron medicamentos con ese nombre.
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

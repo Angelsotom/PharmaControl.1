@@ -1,0 +1,7 @@
+{
+  "name": "PharmaControl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

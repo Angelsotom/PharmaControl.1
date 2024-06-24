@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PHARMACONTROL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="content-container">
+    <ion-img src="../../../assets/imagenes/pastillero.jpg"></ion-img>
+    <div class="info-section">
+      <h2>Registro y Análisis de Compras</h2>
+      <p>Lleva un registro completo de todas tus compras de medicamentos y analiza tus patrones de consumo para planificar mejor tus futuras adquisiciones.</p>
+      <h2>Integración con Servicios de Farmacia</h2>
+      <p>Integra la aplicación con tu farmacia favorita para solicitar recargas y recoger recetas fácilmente, asegurando que nunca te quedes sin los medicamentos esenciales.</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goToPreviousTab('tabs/tab2')">Anterior</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="custom-button" (click)="finish()">Finalizar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
