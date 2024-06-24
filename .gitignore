@@ -68,3 +68,13 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Photos Library
+/Pictures/Photos Library.photoslibrary/
+
+# .gitignore content
+
+# Otros contenidos de .gitignore
+
+# Ignorar la biblioteca de fotos de macOS
+/Pictures/Photos Library.photoslibrary/
