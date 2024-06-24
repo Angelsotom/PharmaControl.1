@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReminderService } from '../../services/reminder.service';
 
 @Component({
   selector: 'app-recordatorio-medicamento',
@@ -12,11 +13,17 @@ export class RecordatorioMedicamentoPage {
     time: ''
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private reminderService: ReminderService) {}
 
-  addReminder() {
-    // Lógica para agregar un recordatorio de medicamento
-    console.log('Recordatorio agregado', this.reminder);
+  async addReminder() {
+    if (this.reminder.name && this.reminder.time) {
+      await this.reminderService.addReminder(this.reminder);
+      this.reminder.name = '';
+      this.reminder.time = '';
+      this.router.navigate(['/home']);
+    } else {
+      // Mostrar alerta o mensaje de error
+    }
   }
 
   goToPage(page: string) {

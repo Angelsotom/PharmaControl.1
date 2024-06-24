@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
   selectedDate: any = '';
   usuario: any = '';
   password: any = '';
+  profileImage: string | null = null;
   isDBReady: boolean = false;
 
   constructor(private router: Router,
@@ -57,7 +58,7 @@ export class RegisterPage implements OnInit {
   }
 
   guardarDatos() {
-    this.dbService.insertUsuario(this.nombre, this.apellido, this.usuario, this.password, this.selectedOption, this.selectedDate)
+    this.dbService.insertUsuario(this.nombre, this.apellido, this.usuario, this.password, this.selectedOption, this.selectedDate, this.profileImage!)
       .then(() => {
         this.presentAlert('Datos guardados exitosamente');
       })

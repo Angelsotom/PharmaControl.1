@@ -12,27 +12,47 @@
     <ion-img [src]="profileImage"></ion-img>
   </ion-card>
 
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input [(ngModel)]="nombre" type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
 
   <ion-item>
     <ion-label position="floating">Apellido</ion-label>
-    <ion-input [(ngModel)]="apellido" type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="apellido"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input [(ngModel)]="correo" type="email"></ion-input>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Clave</ion-label>
-    <ion-input [(ngModel)]="clave" type="password"></ion-input>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="updateProfile()">Actualizar Perfil</ion-button>
-  <ion-button expand="full" (click)="takePicture()">Tomar Foto</ion-button>
-  <ion-button expand="full" (click)="goToPage('home')">Inicio</ion-button>
+  <ion-item>
+    <ion-label>Nivel de Educación</ion-label>
+    <ion-select [(ngModel)]="nivel_de_estudios">
+      <ion-select-option value="Universitario">Universitario</ion-select-option>
+      <ion-select-option value="Magister">Magister</ion-select-option>
+      <ion-select-option value="Doctorado">Doctorado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <mat-form-field>
+      <mat-label>Fecha Nacimiento</mat-label>
+      <input matInput display-format="YYYY-MM-DD" [(ngModel)]="fecha_nacimiento">  
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> 
+    </mat-form-field> 
+  
+  </ion-item>
+
+  <ion-button expand="block" (click)="takePicture()">Tomar Foto</ion-button>
+  
+
+  <ion-button expand="block" (click)="guardar()">Guardar Datos</ion-button>
 </ion-content>

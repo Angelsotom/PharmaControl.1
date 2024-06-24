@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app.modules.ts
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx'; 
 import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,7 +10,6 @@ export class DbService {
 
   public db!: SQLiteObject;
 
-  // observable
   private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false); 
 
   constructor(private sqlite: SQLite, private toastController: ToastController) { 
@@ -22,15 +21,11 @@ export class DbService {
       name: 'Angeldb.db',
       location: 'default'
     }).then((db: SQLiteObject) => {
-
-      
-      this.isDBReady.next(true); 
       this.db = db;
       this.createTables();
-      this.isDBReady.next(true); // Emitimos true cuando la base de datos esté lista
+      this.isDBReady.next(true); 
       this.presentToast('Base de datos y tabla creadas con éxito'); 
-
-    }).catch(error => this.presentToast('Error al insertar usuario:'+ error));
+    }).catch(error => this.presentToast('Error al crear la base de datos: ' + error));
   }
 
   private createTables() {
@@ -42,21 +37,20 @@ export class DbService {
         nombre TEXT,
         apellido TEXT,
         nivel_de_estudios TEXT,
-        fecha_nacimiento TEXT
+        fecha_nacimiento TEXT,
+        foto TEXT
       )`, [])
       .then(() => this.presentToast('Table created'))
-      .catch(error => this.presentToast('Error creating table' + error));
+      .catch(error => this.presentToast('Error creating table: ' + error));
   }
 
-
-  insertUsuario(nombre: string, apellido: string, usuario: string, password: string, selectedOption: string, selectedDate: string) {
+  insertUsuario(nombre: string, apellido: string, usuario: string, password: string, nivel_de_estudios: string, fecha_nacimiento: string, foto: string) {
     return this.db.executeSql(`
-      INSERT INTO usuarios (nombre, apellido, usuario, password, nivel_de_estudios, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?);
-    `, [nombre, apellido, usuario, password, selectedOption, selectedDate])
+      INSERT INTO usuarios (nombre, apellido, usuario, password, nivel_de_estudios, fecha_nacimiento, foto) VALUES (?, ?, ?, ?, ?, ?, ?);
+    `, [nombre, apellido, usuario, password, nivel_de_estudios, fecha_nacimiento, foto])
     .then(() => this.presentToast('Usuario insertado correctamente'))
-    .catch(error => this.presentToast('Error al insertar usuario:'+ error));
+    .catch(error => this.presentToast('Error al insertar usuario: ' + error));
   }
-
 
   validarUsuario(usuario: string, password: string) {
     return this.db.executeSql('SELECT * FROM usuarios WHERE usuario = ? AND password = ?', [usuario, password])
@@ -67,10 +61,11 @@ export class DbService {
           return null; // Retorna null si no se encontró ningún usuario
         }
       })
-      .catch(error =>  this.presentToast('Error al obtener usuario :' + error));
+      .catch(error => {
+        this.presentToast('Error al obtener usuario: ' + error);
+        return null;
+      });
   }
-
-
 
   private async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -80,7 +75,6 @@ export class DbService {
     toast.present();
   }
 
-  // esta funcion indica si la base esta lista para usarse
   getIsDBReady() {
     return this.isDBReady.asObservable();
   }

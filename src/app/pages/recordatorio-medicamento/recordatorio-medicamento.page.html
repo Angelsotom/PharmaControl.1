@@ -10,9 +10,9 @@
     <ion-input type="text" [(ngModel)]="reminder.name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Hora y fehca</ion-label>
+    <ion-label position="floating">Hora y fecha</ion-label>
     <ion-datetime display-format="HH:mm" [(ngModel)]="reminder.time"></ion-datetime>
   </ion-item>
   <ion-button expand="full" (click)="addReminder()">Agregar Recordatorio</ion-button>
-  <ion-button expand="full"(click)="goToPage('home')">Inicio</ion-button>
+  <ion-button expand="full" (click)="goToPage('home')">Inicio</ion-button>
 </ion-content>

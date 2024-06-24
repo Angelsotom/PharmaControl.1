@@ -17,7 +17,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app.modules.ts
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+import { ReminderService } from './services/reminder.service';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,10 +37,11 @@ import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app
     MatIconModule,
     MatListModule,
     MatDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot() 
   ],
   providers: [{ provide: RouteReuseStrategy,
-     useClass: IonicRouteStrategy },SQLite ] ,
+     useClass: IonicRouteStrategy },SQLite,ReminderService  ] ,
   bootstrap: [AppComponent],
 })
 export class AppModule {}
